@@ -14,9 +14,3 @@
 Route::get('/', function () {
     return view('principal');
 });
-
-Route::get('formulario/usuario', 'Usuario@formCad');
-
-
-Route::post('usuario/novo', 'Usuario@store');
-Route::get('usuario', 'Usuario@show');
