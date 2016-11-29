@@ -13,14 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+//Route::get('/user', function (Request $request) {
+//    return $request->user();
+//})->middleware('auth:api');
 
-Route::post('usuario', 'Usuario@store');
-Route::get('usuario', 'Usuario@index');
-Route::get('usuario/{id}', 'Usuario@show');
-Route::get('usuario/{id}/mensagem', 'Usuario@getMensagem');
-Route::get('usuario/{id}/hashtag', 'Usuario@getHashtag');
+Route::post('/usuario', 'UsuarioController@store');
+Route::get('/usuario', 'UsuarioController@index');
+Route::get('/usuario/{id}', 'UsuarioController@show');
 
-Route::post('mensagem', 'Mensagem@store');
+Route::get('/usuario/{id}/mensagem', 'MensagemController@getMensagem');
+Route::get('/mensagem/{hashtag}', 'MensagemController@getHashtag');
+
+Route::post('/usuario/{id}/mensagem', 'MensagemController@store');
+
+Route::get('mensagem', 'MensagemController@index');
